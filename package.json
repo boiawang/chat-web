@@ -1,0 +1,23 @@
+{
+    "name": "chat_web",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "log4js": "*",
+        "body-parser": "~1.0.0",
+        "cookie-parser": "~1.0.1",
+        "debug": "~0.7.4",
+        "ejs": "~0.8.5",
+        "express": "~4.2.0",
+        "mongoose": "*",
+		"bson": "*",
+        "morgan": "~1.0.0",
+        "socket.io": "^1.0.6",
+        "static-favicon": "~1.0.0",
+        "xss-escape": "0.0.5",
+        "grunt": "*",
+        "grunt-contrib-sass": "",
+        "grunt-contrib-cssmin": "*",
+        "grunt-contrib-watch": "*"
+    }
+}
