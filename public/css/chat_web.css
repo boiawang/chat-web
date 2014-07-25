@@ -93,4 +93,17 @@ table {
     border-radius: 5px;
     width: 200px; }
 
+.register-box {
+  width: 760px;
+  height: 500px;
+  background: #f8fdff;
+  margin: 0 auto; }
+  .register-box form {
+    padding: 50px 240px;
+    line-height: 40px; }
+  .register-box .item {
+    width: 100px;
+    display: inline-block;
+    text-align: right; }
+
 /*# sourceMappingURL=chat_web.css.map */

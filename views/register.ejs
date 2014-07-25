@@ -1,0 +1,29 @@
+<% include head %>
+
+<body>
+	<div class="register-box">
+		<form action="/register" method="post">
+			<div class="row">
+				<label for="username" class="item">昵称</label>
+				<input type="text" id="username" name="username" class="userName" />
+			</div>
+			<div class="row">
+				<label for="password" class="item">密码</label>
+				<input type="password" id="password" name="password" class="userName" />
+			</div>
+			<div class="row">
+				<label for="confirmPsd" class="item">确认密码</label>
+				<input type="password" id="confirmPsd" name="confirmPsd" class="userName" />
+			</div>
+			<div class="row">
+				<label for="sex" class="item">性别</label>
+				<input type="radio" id="male" name="sex" checked value="0" />
+				<label for="male">男</label>
+				<input type="radio" id="female" name="sex" value="1" />
+				<label for="female">女</label>
+			</div>
+
+			<input type="submit" />
+		</form>
+	</div>
+</body>
