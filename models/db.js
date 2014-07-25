@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var bson = require('bson');
 var Schema = mongoose.Schema;
 var dbURL = require("../config").db; //数据库地址
 

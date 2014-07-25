@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var db = require('../models/db');
+var User = require('../models/user').User;
 var chatServer = require('../server');
 
 var fs = require('fs');
@@ -24,7 +24,26 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-    console.log(req.body.username, req.body.password, req.body.confirmPsd, req.body.sex);
+    User.find({
+        username: req.body.username
+    }, function(_user) {
+        if (!_user) {
+            var user = new User({
+                username: req.body.username,
+                password: req.body.password,
+                sex: req.body.sex
+            });
+
+            user.save(function(err, user) {
+                if (!err) {
+                    res.render('room', {
+                        title: '房间',
+                        users: chatServer.userList
+                    });
+                }
+            });
+        }
+    });
 });
 
 router.get('/login', function(req, res) {
@@ -34,10 +53,10 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
-    db.add({
+    /*db.add({
         username: req.body.username,
         password: req.body.password
-    });
+    });*/
 
     // res.redirect('/');
 });
@@ -45,7 +64,7 @@ router.post('/login', function(req, res) {
 router.get('/room', function(req, res) {
     res.render('room', {
         title: '房间',
-        users: chatServer.users
+        users: chatServer.userList
     });
 });
 
