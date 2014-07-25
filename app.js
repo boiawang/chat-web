@@ -6,6 +6,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var chatServer = require('./server');
 
 var routes = require('./routes/index');
 
@@ -28,3 +29,5 @@ app.use('/', routes);
 var server = app.listen(app.get('port'), function() {
     console.log('Listening on port %d', server.address().port);
 });
+
+chatServer.listen(server);

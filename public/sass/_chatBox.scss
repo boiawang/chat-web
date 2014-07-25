@@ -1,0 +1,54 @@
+.login-box{
+	height: 40px;
+	display: inline-block;
+	margin-left: 240px;
+}
+.chat-room-box{
+	width: 615px;
+	margin: 0 auto;
+	border: 1px solid #35505f;
+	border-radius: 5px;
+
+	& > .head{
+		height: 128px;
+
+		background-image:  -webkit-linear-gradient(#86c6ee,#4ca2d5);
+	}
+	
+	.col-1{
+		width: 404px;
+
+		.msg-show-box{
+			height: 294px;
+			overflow: auto;
+		}
+		
+		.toolbar{
+			height: 25px;
+			background-image:  -webkit-linear-gradient(left,#bdd9ea,#deecf5);
+		}
+
+		.msg-input-box{
+			height: 92px;
+			padding: 5px;
+			outline: 0;
+			overflow: auto;
+		}	
+		
+		.footer{
+			@extend .toolbar;
+			height: 30px;
+			text-align: right;
+		}	
+	}
+
+	.col-2{
+		.user-list-box{
+			border: 1px solid #a8b1b6;
+			height: 435px;
+			margin: 4px;
+			border-radius: 5px;
+			width: 200px;
+		}
+	}
+}

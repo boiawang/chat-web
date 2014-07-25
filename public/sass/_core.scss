@@ -1,0 +1,14 @@
+.col{
+	display: inline-block;
+	float: left;
+}
+
+.row{
+	display: block;
+}
+
+.clearfix:before, .clearfix:after{
+	display: table;
+	content: " ";
+	clear: both;
+}

@@ -2,11 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 var db = require('../models/db');
+var chatServer = require('../server');
 
 var fs = require('fs');
 var projectData;
-
-db.connect();
 
 fs.readFile('package.json', function(error, data) {
     if (!error) projectData = JSON.parse(data);
@@ -33,8 +32,20 @@ router.post('/login', function(req, res) {
 
 router.get('/room', function(req, res) {
     res.render('room', {
-        projectName: projectData.name
+        projectName: projectData.name,
+        users: chatServer.users
     });
+});
+
+router.post('/room', function(req, res) {
+    var userName = req.body.userName;
+
+    if (userName) {
+        res.send(req.body.userName);
+    } else {
+        res.send('用户名不能为空');
+    }
+
 });
 
 module.exports = router;

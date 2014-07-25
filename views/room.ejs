@@ -1,21 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>房间</title>
-	<link rel="stylesheet" href="/css/<%= projectName %>.min.css" />
-</head>
+<% include head %>
 <body>
-	<div class="chat-room-box">	
-		<div class="">
-			<div class="msg-show-box">消息显示</div>
+	<span class="login-box">
+		<label for="username">用户名: </label>
+		<input class="username" id="username" name="username" />
+		<button class="btn-login">登陆</button>
+	</span>
+	<div class="chat-room-box clearfix">	
+		<div class="head"></div>
+		<div class="col col-1">
+			<div class="msg-show-box"></div>
+			<div class="toolbar"></div>
 			<div class="msg-input-box" contentEditable="true">
 			</div>
+			<div class="footer">
+				<button class="btn-send">发送</button>
+			</div>
 		</div>
-		<div class="">
-			<div class="apply-box">应用</div>
-			<div class="user-list-box">用户列表</div>
+		<div class="col col-2">
+			<div class="user-list-box">
+				<div class="head">聊天成员(<span class="num"><%= users.length %></span>)</div>
+				<ul class="body">
+					<% for(var i=0;i<users.length;i++){ %>
+						<li class="list"><%= users[i] %></li>
+					<% } %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
-</html>
