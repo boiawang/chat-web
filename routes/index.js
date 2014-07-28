@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/user').User;
+var User = require('mongoose').model('User');;
 var chatServer = require('../server');
 
 var fs = require('fs');
@@ -24,22 +24,28 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
+    var isLogin = false;
+    var userName = req.body.username;
     User.find({
-        username: req.body.username
+        username: userName
     }, function(_user) {
         if (!_user) {
             var user = new User({
-                username: req.body.username,
+                username: userName,
                 password: req.body.password,
                 sex: req.body.sex
             });
 
             user.save(function(err, user) {
+                req.session.myUser = userName;
                 if (!err) {
-                    res.render('room', {
+                    /*return res.render('room', {
+                        myUser: userName,
+                        isLogin: true,
                         title: '房间',
                         users: chatServer.userList
-                    });
+                    });*/
+                    return res.redirect('/');
                 }
             });
         }
