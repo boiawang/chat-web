@@ -12,7 +12,7 @@
 	& > .head{
 		height: 128px;
 
-		background-image:  -webkit-linear-gradient(#86c6ee,#4ca2d5);
+		@include background-gradient-linear(#86c6ee,#4ca2d5);
 	}
 	
 	.col-1{
@@ -25,7 +25,7 @@
 		
 		.toolbar{
 			height: 25px;
-			background-image:  -webkit-linear-gradient(left,#bdd9ea,#deecf5);
+			@include background-gradient-linear(#bdd9ea,#deecf5,left);
 		}
 
 		.msg-input-box{

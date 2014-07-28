@@ -1,0 +1,4 @@
+@mixin background-gradient-linear($from, $end, $pos: top) {
+	background-image: -webkit-linear-gradient($pos, $from, $end);
+	background-image: -moz-linear-gradient($pos, $from, $end);
+}

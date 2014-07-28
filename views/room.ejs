@@ -1,9 +1,13 @@
 <% include head %>
 <body>
 	<span class="login-box">
+		<% if(!session.myUser){ %>
 		<label for="username">用户名: </label>
 		<input class="username" id="username" name="username" />
 		<button class="btn-login">登陆</button>
+		<% }else{ %>
+			<%= session.myUser %>已登录
+		<% } %>
 	</span>
 	<div class="chat-room-box clearfix">	
 		<div class="head"></div>

@@ -45,8 +45,10 @@ jQuery(function($) {
 
     // 发送消息
     $('.btn-send').on('click', function(event) {
-        var content = $('.msg-input-box').text().empty();
+        var content = $('.msg-input-box').text();
         var user = $('.login-box').data('user');
+
+        $('.msg-input-box').empty();
 
         socket.emit('send-msg', {
             user: user,

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('mongoose').model('User');;
-var chatServer = require('../server');
+var userList = require('../server').userList;
 
 var fs = require('fs');
 var projectData;
@@ -13,7 +13,8 @@ fs.readFile('package.json', function(error, data) {
 
 router.get('/', function(req, res) {
     res.render('index', {
-        title: '聊天室'
+        title: '聊天室',
+        session: req.session
     });
 });
 
@@ -38,14 +39,15 @@ router.post('/register', function(req, res) {
 
             user.save(function(err, user) {
                 req.session.myUser = userName;
+                userList.push(userName);
                 if (!err) {
                     /*return res.render('room', {
                         myUser: userName,
                         isLogin: true,
                         title: '房间',
-                        users: chatServer.userList
+                        users: userList
                     });*/
-                    return res.redirect('/');
+                    return res.redirect('/room');
                 }
             });
         }
@@ -70,7 +72,8 @@ router.post('/login', function(req, res) {
 router.get('/room', function(req, res) {
     res.render('room', {
         title: '房间',
-        users: chatServer.userList
+        users: userList,
+        session: req.session
     });
 });
 

@@ -7,3 +7,7 @@
 - Node
 - Mongoose
 
+## author
+
+site: [http://www.boiajs.com](http://www.boiajs.com)
+github: [http://github.com/boiawang](http://github.com/boiawang)
