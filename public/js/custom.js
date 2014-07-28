@@ -26,18 +26,6 @@ jQuery(function($) {
     $('.btn-login').on('click', function(event) {
         var userName = $('.username').val();
 
-        /*if (userName) {
-            $.ajax({
-                url: '/room',
-                data: {
-                    userName: userName
-                },
-                type: 'POST'
-            }).done(function(user) {
-                console.log(user)
-            });
-        }*/
-
         // 用户登陆
         socket.emit('user-login', userName);
 

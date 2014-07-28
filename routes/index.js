@@ -14,13 +14,15 @@ fs.readFile('package.json', function(error, data) {
 router.get('/', function(req, res) {
     res.render('index', {
         title: '聊天室',
-        session: req.session
+        session: req.session,
+        page: 'login'
     });
 });
 
 router.get('/register', function(req, res) {
     res.render('register', {
-        title: '注册'
+        title: '注册',
+        page: 'login'
     });
 });
 
@@ -56,7 +58,8 @@ router.post('/register', function(req, res) {
 
 router.get('/login', function(req, res) {
     res.render('login', {
-        title: '登陆'
+        title: '登陆',
+        page: 'login'
     });
 });
 
@@ -73,7 +76,8 @@ router.get('/room', function(req, res) {
     res.render('room', {
         title: '房间',
         users: userList,
-        session: req.session
+        session: req.session,
+        page: 'room'
     });
 });
 
