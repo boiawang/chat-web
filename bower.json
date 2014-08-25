@@ -1,0 +1,19 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "authors": [
+    "boiwang <github.com/boiawang>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
